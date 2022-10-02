@@ -1,0 +1,87 @@
+name: airbyte_utils
+version: '1.0'
+config-version: 2
+profile: normalize
+model-paths:
+- models
+docs-paths:
+- docs
+analysis-paths:
+- analysis
+test-paths:
+- tests
+seed-paths:
+- data
+macro-paths:
+- macros
+target-path: ../build
+log-path: ../logs
+packages-install-path: /dbt
+clean-targets:
+- build
+- dbt_modules
+quoting:
+  database: true
+  schema: false
+  identifier: true
+models:
+  airbyte_utils:
+    +materialized: table
+    generated:
+      airbyte_ctes:
+        +tags: airbyte_internal_cte
+        +materialized: ephemeral
+      airbyte_incremental:
+        +tags: incremental_tables
+        +materialized: incremental
+      airbyte_tables:
+        +tags: normalized_tables
+        +materialized: table
+      airbyte_views:
+        +tags: airbyte_internal_views
+        +materialized: view
+vars:
+  dbt_utils_dispatch_list:
+  - airbyte_utils
+  json_column: _airbyte_data
+  models_to_source:
+    test_2_entries_ab1: dbo._airbyte_raw_test_2_entries
+    test_2_entries_ab2: dbo._airbyte_raw_test_2_entries
+    test_2_entries_ab3: dbo._airbyte_raw_test_2_entries
+    test_2_entries: dbo._airbyte_raw_test_2_entries
+    test_2_members_ab1: dbo._airbyte_raw_test_2_members
+    test_2_members_ab2: dbo._airbyte_raw_test_2_members
+    test_2_members_ab3: dbo._airbyte_raw_test_2_members
+    test_2_members: dbo._airbyte_raw_test_2_members
+    test_2_projects_ab1: dbo._airbyte_raw_test_2_projects
+    test_2_projects_ab2: dbo._airbyte_raw_test_2_projects
+    test_2_projects_ab3: dbo._airbyte_raw_test_2_projects
+    test_2_projects: dbo._airbyte_raw_test_2_projects
+    test_2_entries_timeinterval_ab1: dbo._airbyte_raw_test_2_entries
+    test_2_entries_timeinterval_ab2: dbo._airbyte_raw_test_2_entries
+    test_2_entries_timeinterval_ab3: dbo._airbyte_raw_test_2_entries
+    test_2_entries_timeinterval: dbo._airbyte_raw_test_2_entries
+    test_2_members_settings_ab1: dbo._airbyte_raw_test_2_members
+    test_2_members_settings_ab2: dbo._airbyte_raw_test_2_members
+    test_2_members_settings_ab3: dbo._airbyte_raw_test_2_members
+    test_2_members_settings: dbo._airbyte_raw_test_2_members
+    test_2_projects_estimate_ab1: dbo._airbyte_raw_test_2_projects
+    test_2_projects_estimate_ab2: dbo._airbyte_raw_test_2_projects
+    test_2_projects_estimate_ab3: dbo._airbyte_raw_test_2_projects
+    test_2_projects_estimate: dbo._airbyte_raw_test_2_projects
+    test_2_projects_hourlyrate_ab1: dbo._airbyte_raw_test_2_projects
+    test_2_projects_hourlyrate_ab2: dbo._airbyte_raw_test_2_projects
+    test_2_projects_hourlyrate_ab3: dbo._airbyte_raw_test_2_projects
+    test_2_projects_hourlyrate: dbo._airbyte_raw_test_2_projects
+    test_2_projects_memberships_ab1: dbo._airbyte_raw_test_2_projects
+    test_2_projects_memberships_ab2: dbo._airbyte_raw_test_2_projects
+    test_2_projects_memberships_ab3: dbo._airbyte_raw_test_2_projects
+    test_2_projects_memberships: dbo._airbyte_raw_test_2_projects
+    test_2_projects_timeestimate_ab1: dbo._airbyte_raw_test_2_projects
+    test_2_projects_timeestimate_ab2: dbo._airbyte_raw_test_2_projects
+    test_2_projects_timeestimate_ab3: dbo._airbyte_raw_test_2_projects
+    test_2_projects_timeestimate: dbo._airbyte_raw_test_2_projects
+    test_2_members_settin__summaryreportsettings_ab1: dbo._airbyte_raw_test_2_members
+    test_2_members_settin__summaryreportsettings_ab2: dbo._airbyte_raw_test_2_members
+    test_2_members_settin__summaryreportsettings_ab3: dbo._airbyte_raw_test_2_members
+    test_2_members_settin__summaryreportsettings: dbo._airbyte_raw_test_2_members
