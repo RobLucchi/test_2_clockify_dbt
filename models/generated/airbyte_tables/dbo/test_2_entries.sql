@@ -6,8 +6,8 @@
 -- Final base SQL model
 -- depends_on: {{ ref('test_2_entries_ab3') }}
 select
-    id as id_test,
-    type,
+    id,
+    type as typee,
     tagids,
     taskid,
     userid,
