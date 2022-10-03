@@ -7,7 +7,7 @@
 -- depends_on: {{ ref('test_2_entries_ab3') }}
 select
     id,
-    type,
+    type as typeee,
     tagids,
     taskid,
     userid,
