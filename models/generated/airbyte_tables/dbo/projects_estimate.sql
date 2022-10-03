@@ -15,4 +15,3 @@ select
 from {{ ref('projects_estimate_ab3') }}
 -- estimate at projects/estimate from {{ ref('projects') }}
 where 1 = 1
-

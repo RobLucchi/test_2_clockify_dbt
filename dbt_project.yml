@@ -36,11 +36,14 @@ models:
         +materialized: incremental
       airbyte_tables:
         +tags: normalized_tables
-        +materialized: table
-        schema: final
+        +materialized: ephemeral
       airbyte_views:
         +tags: airbyte_internal_views
         +materialized: view
+      airbyte_final:
+        +tags: normalized_tables
+        +materialized: table    
+        schema: final    
 vars:
   dbt_utils_dispatch_list:
   - airbyte_utils
