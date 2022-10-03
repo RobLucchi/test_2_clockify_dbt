@@ -3,9 +3,9 @@
     tags = [ "nested" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('test_2_members_settings_ab3') }}
+-- depends_on: {{ ref('members_settings_ab3') }}
 select
-    _airbyte_test_2_members_hashid,
+    _airbyte_members_hashid,
     pto,
     lang,
     theme,
@@ -39,7 +39,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_settings_hashid
-from {{ ref('test_2_members_settings_ab3') }}
--- settings at test_2_members/settings from {{ ref('test_2_members') }}
+from {{ ref('members_settings_ab3') }}
+-- settings at members/settings from {{ ref('members') }}
 where 1 = 1
 
