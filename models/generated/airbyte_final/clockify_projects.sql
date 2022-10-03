@@ -18,7 +18,6 @@ select
     template,
     clientname,
     workspaceid,
-    timeestimate,
     budgetestimate,
 
     b.type estimate_type,
