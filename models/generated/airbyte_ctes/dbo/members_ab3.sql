@@ -4,7 +4,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('test_2_members_ab2') }}
+-- depends_on: {{ ref('members_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
         'id',
@@ -17,9 +17,9 @@ select
         'profilepicture',
         'activeworkspace',
         'defaultworkspace',
-    ]) }} as _airbyte_test_2_members_hashid,
+    ]) }} as _airbyte_members_hashid,
     tmp.*
-from {{ ref('test_2_members_ab2') }} tmp
--- test_2_members
+from {{ ref('members_ab2') }} tmp
+-- members
 where 1 = 1
 

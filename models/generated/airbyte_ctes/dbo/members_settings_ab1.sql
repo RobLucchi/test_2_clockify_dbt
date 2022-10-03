@@ -3,9 +3,9 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('test_2_members') }}
+-- depends_on: {{ ref('members') }}
 select
-    _airbyte_test_2_members_hashid,
+    _airbyte_members_hashid,
     {{ json_extract_scalar('settings', ['pto'], ['pto']) }} as pto,
     {{ json_extract_scalar('settings', ['lang'], ['lang']) }} as lang,
     {{ json_extract_scalar('settings', ['theme'], ['theme']) }} as theme,
@@ -38,8 +38,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('test_2_members') }} as table_alias
--- settings at test_2_members/settings
+from {{ ref('members') }} as table_alias
+-- settings at members/settings
 where 1 = 1
 and settings is not null
 

@@ -4,7 +4,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
--- depends_on: {{ ref('test_2_entries_ab1') }}
+-- depends_on: {{ ref('entries_ab1') }}
 select
     cast(id as {{ dbt_utils.type_string() }}) as id,
     cast(type as {{ dbt_utils.type_string() }}) as type,
@@ -22,7 +22,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('test_2_entries_ab1') }}
--- test_2_entries
+from {{ ref('entries_ab1') }}
+-- entries
 where 1 = 1
 

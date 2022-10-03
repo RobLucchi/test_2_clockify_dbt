@@ -3,10 +3,10 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('test_2_members_settings_ab2') }}
+-- depends_on: {{ ref('members_settings_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        '_airbyte_test_2_members_hashid',
+        '_airbyte_members_hashid',
         boolean_to_string('pto'),
         'lang',
         'theme',
@@ -38,7 +38,7 @@ select
         boolean_to_string('groupsimilarentriesdisabled'),
     ]) }} as _airbyte_settings_hashid,
     tmp.*
-from {{ ref('test_2_members_settings_ab2') }} tmp
--- settings at test_2_members/settings
+from {{ ref('members_settings_ab2') }} tmp
+-- settings at members/settings
 where 1 = 1
 
