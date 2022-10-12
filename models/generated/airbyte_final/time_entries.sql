@@ -20,7 +20,6 @@ select
     duration,
     {{ adapter.quote('end') }},
     {{ adapter.quote('start') }},
-    {{ adapter.quote('end' )}} - {{adapter.quote('start')}},
     a._airbyte_entries_hashid,
     a._airbyte_ab_id,
     a._airbyte_emitted_at,
