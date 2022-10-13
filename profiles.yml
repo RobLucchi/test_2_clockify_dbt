@@ -16,3 +16,4 @@ normalize:
       type: sqlserver
       user: sa
   target: prod
+  

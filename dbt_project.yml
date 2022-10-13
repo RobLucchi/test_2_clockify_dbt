@@ -31,19 +31,24 @@ models:
       airbyte_ctes:
         +tags: airbyte_internal_cte
         +materialized: ephemeral
+        +as_columnstore: False
       airbyte_incremental:
         +tags: incremental_tables
         +materialized: incremental
+        +as_columnstore: False
       airbyte_tables:
         +tags: normalized_tables
         +materialized: ephemeral
+        +as_columnstore: False
       airbyte_views:
         +tags: airbyte_internal_views
         +materialized: view
+        +as_columnstore: False
       airbyte_final:
         +tags: normalized_tables
         +materialized: table    
         schema: final    
+        +as_columnstore: False
 vars:
   dbt_utils_dispatch_list:
   - airbyte_utils
