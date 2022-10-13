@@ -1,6 +1,8 @@
 {{ config(
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level" ]
+    tags = [ "top-level" ],
+    materialized='incremental',
+        unique_key='id',
+        incremental_strategy='merge'
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('members') }}

@@ -1,5 +1,8 @@
 {{ config(
-    tags = [ "nested" ]
+    tags = [ "nested" ],
+    materialized='incremental',
+        unique_key='userid',
+        incremental_strategy='merge'
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('projects_memberships') }}
@@ -13,4 +16,3 @@ select
     membershipstatus
 from {{ ref('projects_memberships') }}
 -- clockify_projects_members at projects/memberships from {{ ref('projects') }}
-where 1 = 1
